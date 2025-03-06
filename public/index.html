@@ -5,54 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard de TI</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Efeito Aurora Boreal no Fundo -->
-    <div class="aurora"></div>
-
-    <!-- Destaque "Time de TI" -->
+    <!-- Logo "Time de TI" -->
     <header>
-        <h1>Time de TI</h1>
+        <h1 class="logo">Time de <span class="rgb">TI</span></h1>
     </header>
 
-    <!-- Frases Motivacionais com Efeito RGB -->
+    <!-- Frases Motivacionais -->
     <section id="slider">
         <div class="slides">
-            <p class="slide">"A tecnologia move o mundo. 🚀"</p>
-            <p class="slide">"Equilíbrio entre vida e código é essencial. ⚖️"</p>
-            <p class="slide">"Inovação é a chave para o futuro. 🔑"</p>
-            <p class="slide">"Descanse, recarregue e volte mais forte. 💪"</p>
+            <p class="slide active">"A tecnologia move o mundo."</p>
+            <p class="slide">"Equilíbrio entre vida e código é essencial."</p>
+            <p class="slide">"Inovação é a chave para o futuro."</p>
+            <p class="slide">"Descanse, recarregue e volte mais forte."</p>
         </div>
+    </section>
+
+    <!-- Mensagem acima dos Botões -->
+    <section id="mensagem">
+        <h2>O que você busca hoje?</h2>
     </section>
 
     <!-- Botões Interativos -->
     <section id="botoes">
-        <button class="neon-button" onclick="abrirTask()">Abrir Task</button>
-        <button class="neon-button" onclick="abrirTutoriais()">Tutoriais</button>
-        <button class="neon-button" onclick="falarComAdmin()">Falar com Administrativo</button>
+        <button class="btn" onclick="abrirTask()">Abrir Task</button>
+        <button class="btn" onclick="abrirTutoriais()">Tutoriais</button>
+        <button class="btn" onclick="falarComAdmin()">Falar com Administrativo</button>
+        <!-- Botão para acessar o Manual do Colaborador -->
+        <button class="btn" onclick="acessarManual()">Manual do Colaborador</button>
+    </section>
+
+    <!-- Mensagem acima dos Cards -->
+    <section id="msg-cards">
+        <h2>Não encontrou o que procura? <a href="#">Fale com a TI!</a></h2>
     </section>
 
     <!-- Cards de Perfil -->
     <section id="cards">
         <div class="card">
-            <img src="assets/pessoa1.jpg" alt="Pessoa 1">
-            <h3>João Silva</h3>
-            <p>joao.silva@empresa.com</p>
+            <img src="assets/eu.png" alt="Pessoa 1">
+            <h3>kauã Lima</h3>
+            <p>kaua.lima@greenn.com.br</p>
         </div>
         <div class="card">
-            <img src="assets/pessoa2.jpg" alt="Pessoa 2">
-            <h3>Maria Souza</h3>
-            <p>maria.souza@empresa.com</p>
+            <img src="assets/jessica.png" alt="Pessoa 2">
+            <h3>Jessica Fernandes</h3>
+            <p>jessica.fernandes@greenn.com.br</p>
         </div>
         <div class="card">
-            <img src="assets/pessoa3.jpg" alt="Pessoa 3">
-            <h3>Carlos Oliveira</h3>
-            <p>carlos.oliveira@empresa.com</p>
+            <img src="assets/dario.png" alt="Pessoa 3">
+            <h3>Dario Coutinho</h3>
+            <p>dario.coutinho@greenn.com.br</p>
         </div>
         <div class="card">
-            <img src="assets/pessoa4.jpg" alt="Pessoa 4">
-            <h3>Ana Costa</h3>
-            <p>ana.costa@empresa.com</p>
+            <img src="assets/danilo.png" alt="Pessoa 4">
+            <h3>Danilo Macedo</h3>
+            <p>danilo@greenn.com.br</p>
         </div>
     </section>
 
