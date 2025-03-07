@@ -24,13 +24,13 @@ function abrirTask() {
     window.open('https://forms.clickup.com/9011833817/f/8cjbayt-7791/8LVM6MSRGMTA3SCR8N', '_blank');
 }
 
-// Funções para os outros botões
-function abrirTutoriais() {
-    alert('Abrir Tutoriais...');
+function redefinirSenha() {
+    window.open('https://console.jumpcloud.com/login', '_blank');
 }
 
-function falarComAdmin() {
-    h;
+
+function primeiraConfig() {
+    window.location.href = 'check/checklist.html';;
 }
 
 // Função para mover o carrossel
@@ -62,4 +62,8 @@ function moverCarrossel(direcao) {
 // Função para acessar o Manual do Colaborador
 function acessarManual() {
     window.location.href = 'Manual/manual.html';
+}
+
+function abrirTutoriais() {
+    window.location.href = 'tutoriais/tutoriais.html';
 }

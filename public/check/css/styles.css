@@ -1,0 +1,132 @@
+/* Estilos Globais */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f4f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Logo e Mensagem de Boas-Vindas */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0;
+    color: #0dd65a;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.mensagem-boas-vindas {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #555;
+}
+
+/* Barra de Progresso */
+#progresso {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.barra-progresso {
+    width: 80%;
+    max-width: 600px;
+    height: 20px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#progresso-preenchido {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+#porcentagem-progresso {
+    font-size: 1.1em;
+    margin-top: 10px;
+    color: #0072ff;
+}
+
+/* Checklist de Tarefas */
+#checklist {
+    text-align: center;
+    margin: 20px;
+}
+
+#lista-tarefas {
+    list-style: none;
+    padding: 0;
+}
+
+#lista-tarefas li {
+    background: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#lista-tarefas li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+#finalizar-btn {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+}
+
+#finalizar-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+#finalizar-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #005bb5, #0099cc);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 2em;
+    }
+
+    .barra-progresso {
+        width: 90%;
+    }
+
+    #lista-tarefas li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

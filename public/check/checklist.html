@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist de Configuração - Greenn</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Mensagem de Boas-Vindas -->
+    <header>
+        <h1 class="logo">Greenn</h1>
+        <p class="mensagem-boas-vindas">Olá, seja bem-vindo à Greenn! Estamos felizes em tê-lo conosco. Organizamos um checklist para te auxiliar em sua primeira configuração. Vamos lá!</p>
+    </header>
+
+    <!-- Barra de Progresso -->
+    <section id="progresso">
+        <div class="barra-progresso">
+            <div id="progresso-preenchido"></div>
+        </div>
+        <p id="porcentagem-progresso">0% concluído</p>
+    </section>
+
+    <!-- Checklist de Tarefas -->
+    <section id="checklist">
+        <h2>Checklist de Configuração</h2>
+        <ul id="lista-tarefas">
+            <!-- Tarefas serão adicionadas dinamicamente via JavaScript -->
+        </ul>
+        <button id="finalizar-btn" onclick="finalizarChecklist()" disabled>Finalizar Checklist</button>
+    </section>
+
+    <script src="js/checklist.js"></script>
+</body>
+</html>
