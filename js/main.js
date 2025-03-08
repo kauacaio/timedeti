@@ -33,7 +33,7 @@ function erpbi() {
 }
 
 function primeiraConfig() {
-    window.location.href = 'check/checklist.html';;
+    window.location.href = 'public/check/checklist.html';;
 }
 
 // Função para mover o carrossel
@@ -64,9 +64,9 @@ function moverCarrossel(direcao) {
 
 // Função para acessar o Manual do Colaborador
 function acessarManual() {
-    window.location.href = 'Manual/manual.html';
+    window.location.href = 'public/Manual/manual.html';
 }
 
 function abrirTutoriais() {
-    window.location.href = 'tutoriais/tutoriais.html';
+    window.location.href = 'public/tutoriais/tutoriais.html';
 }
