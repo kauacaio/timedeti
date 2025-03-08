@@ -166,39 +166,231 @@ header {
     margin: 0;
 }
 
-/* Espaço de Novidades */
+/* Seção de Novidades */
 #novidades {
-    background: #f0f4f8;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px;
-}
-
-#novidades h2 {
-    color: #0072ff;
+    width: 100%;
+    max-width: 1200px; /* Limita a largura para evitar estourar a tela */
+    margin: 80px auto; /* Centraliza e mantém espaçamento adequado */
+    padding: 100px 40px;
+    background: #ffffff; /* Fundo branco para mais leveza */
+    color: #000; /* Texto preto para melhor contraste */
     text-align: center;
-    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px; /* Bordas arredondadas para suavidade */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
 }
 
-.novidades-content {
-    .container {
-        width: 100vw;
-        overflow: hidden; /* Evita barras de rolagem indesejadas */
+/* Camadas do efeito de Aurora Boreal mais claras */
+.aurora {
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    top: -5%;
+    left: -5%;
+    background: radial-gradient(circle, rgba(#0072ff) 20%, rgba(#00c6ff) 50%, transparent 80%);
+    filter: blur(90px);
+    animation: aurora-move 10s infinite alternate ease-in-out;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.aurora:nth-child(2) {
+    animation-duration: 12s;
+    background: radial-gradient(circle, rgba(144, 238, 144, 0.25) 15%, rgba(173, 216, 230, 0.2) 50%, transparent 80%);
+    filter: blur(100px);
+    opacity: 0.5;
+}
+
+@keyframes aurora-move {
+    0% {
+        transform: translateY(-3%) translateX(-3%) scale(1.1);
     }
-    
+    50% {
+        transform: translateY(3%) translateX(3%) scale(1.15);
+    }
+    100% {
+        transform: translateY(-3%) translateX(-3%) scale(1.1);
+    }
 }
 
-.novidades-content img {
-    width: 100vw; /* Ocupa toda a largura da tela */
-    height: auto; /* Mantém a proporção da imagem */
-    display: block;
-    object-fit: cover; /* Cobre o espaço disponível sem distorcer */
-    border-radius: 0; /* Remove bordas arredondadas para preencher a tela */
+/* Seção de Novidades */
+#novidades {
+    width: 100%;
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 100px 20px;
+    background: #ffffff;
+    color: #000;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.novidades-content p {
-    color: #555;
+/* Efeito de Sombra em Verde e Azul com Movimento */
+#novidades::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 255, 150, 0.2) 20%, rgba(0, 150, 255, 0.2) 50%, transparent 80%);
+    filter: blur(50px);
+    animation: sombra-movimento 6s infinite alternate ease-in-out;
+    z-index: 1;
 }
+
+@keyframes sombra-movimento {
+    0% {
+        transform: translateY(-10px) translateX(-10px);
+    }
+    100% {
+        transform: translateY(10px) translateX(10px);
+    }
+}
+
+/* Seção de Novidades */
+#novidades {
+    width: 100%;
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 100px 20px;
+    background: #ffffff;
+    color: #000;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de Sombra em Verde e Azul com Movimento */
+#novidades::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 255, 150, 0.3) 20%, rgba(0, 150, 255, 0.3) 50%, transparent 80%);
+    filter: blur(50px);
+    animation: sombra-movimento 6s infinite alternate ease-in-out;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+@keyframes sombra-movimento {
+    0% {
+        transform: translateY(-15px) translateX(-15px) scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(10px) translateX(10px) scale(1.05);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-10px) translateX(-10px) scale(1);
+        opacity: 0.8;
+    }
+}
+
+/* Seção de Novidades */
+#novidades {
+    width: 100%;
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 100px 20px;
+    background: #ffffff;
+    color: #000;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de Sombra em Verde e Azul com Movimento */
+#novidades::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 255, 150, 0.4) 20%, rgba(3, 247, 76, 0.4) 50%, transparent 80%);
+    filter: blur(60px);
+    animation: sombra-movimento 5s infinite alternate ease-in-out;
+    z-index: 1;
+    opacity: 0.9;
+}
+
+@keyframes sombra-movimento {
+    0% {
+        transform: translateY(-20px) translateX(-20px) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(15px) translateX(15px) scale(1.08);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-15px) translateX(-15px) scale(1);
+        opacity: 0.9;
+    }
+}
+
+/* Conteúdo da Seção */
+.novidades-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.novidades-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0;
+    color: #000;
+}
+
+/* Texto Reservado ao Fundo */
+.texto-reservado {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .novidades-content h2 {
+        font-size: 2em;
+    }
+
+    #novidades {
+        padding: 60px 20px;
+        margin-top: 40px;
+    }
+
+    .texto-reservado {
+        font-size: 0.8em;
+    }
+}
+
+
+
+
+
 
 /* Carrossel de Novidades */
 .carrossel {

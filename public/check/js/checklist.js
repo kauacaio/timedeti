@@ -1,59 +1,111 @@
-// Lista de Tarefas
-const tarefas = [
-    "Acessar o Portal Jumpcloud User Login (https://console.jumpcloud.com/login)",
-    "Inserir seu e-mail profissional e sua senha provisória",
-    "Cadastrar o multi-fator (indicamos o Jumpcloud Protect)",
-    "Acessar o campo 'Segurança'",
-    "Dentro da aba 'Segurança', acesse 'Resetar Senha'",
-    "Inserir sua senha provisória e criar/confirmar sua nova senha",
-    "Senha alterada com sucesso",
-    "Fechar o portal",
-    "Acessar a conta Google e ir para a aba 'Segurança'",
-    "Encontrar a etapa 'Google Authenticator'",
-    "Adicionar um novo aplicativo autenticador",
-    "Finalizar a configuração do multi-fator"
+// Lista de Passos
+const passos = [
+    {
+        titulo: "Passo 1: Acessar ao Portal Jumpcloud",
+        descricao: "Acesse o link: <a href='https://console.jumpcloud.com/login' target='_blank'>Jumpcloud Login</a>",
+    },
+    {
+        titulo: "Passo 2: Inserir e-mail e senha provisória",
+        descricao: "Use seu e-mail profissional e a senha provisória fornecida.",
+    },
+    {
+        titulo: "Passo 3: Cadastrar Multi-Fator",
+        descricao: "Recomendamos o uso do Jumpcloud Protect.",
+    },
+    {
+        titulo: "Passo 4: Acessar Campo Segurança",
+        descricao: "Navegue até a aba 'Segurança' no painel.",
+    },
+    {
+        titulo: "Passo 5: Resetar Senha",
+        descricao: "Clique em 'Resetar Senha' e siga as instruções.",
+    },
+    {
+        titulo: "Passo 6: Criar Nova Senha",
+        descricao: "Sua senha deve ter 12 dígitos, com letras maiúsculas, minúsculas, números e caracteres especiais.",
+    },
+    {
+        titulo: "Passo 7: Senha Alterada",
+        descricao: "Confirme a alteração da senha.",
+    },
+    {
+        titulo: "Passo 8: Fechar o Portal",
+        descricao: "Você pode fechar o portal após concluir.",
+    },
+    {
+        titulo: "Passo 9: Configurar Google Authenticator",
+        descricao: "Acesse sua conta Google e vá até a aba 'Segurança'.",
+    },
+    {
+        titulo: "Passo 10: Adicionar Novo Autenticador",
+        descricao: "Use o mesmo aplicativo autenticador configurado no Jumpcloud.",
+    },
+    {
+        titulo: "Passo 11: Finalizar Configuração",
+        descricao: "Revise todas as configurações e conclua o processo.",
+    },
 ];
 
-// Referências aos elementos do DOM
-const listaTarefas = document.getElementById('lista-tarefas');
-const barraProgresso = document.getElementById('progresso-preenchido');
-const porcentagemProgresso = document.getElementById('porcentagem-progresso');
-const finalizarBtn = document.getElementById('finalizar-btn');
+// Função para gerar os passos
+function gerarPassos() {
+    const listaPassos = document.querySelector('.lista-passos');
 
-// Função para carregar as tarefas na lista
-function carregarTarefas() {
-    tarefas.forEach((tarefa, index) => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-            <input type="checkbox" id="tarefa-${index}" onchange="atualizarProgresso()">
-            <label for="tarefa-${index}">${tarefa}</label>
+    passos.forEach((passo, index) => {
+        // Cria o item do passo
+        const passoItem = document.createElement('div');
+        passoItem.classList.add('passo-item');
+        passoItem.innerHTML = `
+            <div>
+                <h3>${passo.titulo}</h3>
+                <p>${passo.descricao}</p>
+            </div>
+            <input type="checkbox" onchange="atualizarProgresso(${index})">
         `;
-        listaTarefas.appendChild(li);
+        listaPassos.appendChild(passoItem);
     });
 }
 
-// Função para atualizar a barra de progresso
-function atualizarProgresso() {
-    const checkboxes = document.querySelectorAll('#lista-tarefas input[type="checkbox"]');
-    const tarefasConcluidas = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
-    const progresso = (tarefasConcluidas / tarefas.length) * 100;
+// Função para atualizar o progresso
+function atualizarProgresso(index) {
+    const passos = document.querySelectorAll('.passo-item');
+    const finalizarBtn = document.getElementById('finalizar-btn');
+    const linhaPreenchida = document.querySelector('.linha-progresso-preenchida');
+    const porcentagemProgresso = document.querySelector('.porcentagem-progresso');
+    const logoGreenn = document.getElementById('logo-greenn');
 
-    barraProgresso.style.width = `${progresso}%`;
-    porcentagemProgresso.textContent = `${Math.round(progresso)}% concluído`;
+    // Marca o passo como concluído
+    passos[index].classList.add('concluido');
 
-    // Habilitar o botão de finalizar se todas as tarefas estiverem concluídas
-    if (tarefasConcluidas === tarefas.length) {
+    // Atualiza a linha de progresso
+    const porcentagem = ((index + 1) / passos.length) * 100;
+    linhaPreenchida.style.height = `${porcentagem}%`;
+
+    // Atualiza a porcentagem exibida
+    porcentagemProgresso.textContent = `${Math.round(porcentagem)}%`;
+
+    // Atualiza a cor do logo Greenn
+    logoGreenn.style.background = `linear-gradient(135deg, #0dd65a ${porcentagem}%, #00c6ff ${porcentagem}%)`;
+    logoGreenn.style.webkitBackgroundClip = 'text';
+    logoGreenn.style.webkitTextFillColor = 'transparent';
+
+    // Verifica se todos os passos foram concluídos
+    const todosConcluidos = Array.from(passos).every(passo => passo.classList.contains('concluido'));
+    if (todosConcluidos) {
         finalizarBtn.disabled = false;
-    } else {
-        finalizarBtn.disabled = true;
     }
 }
 
 // Função para finalizar o checklist
 function finalizarChecklist() {
-    alert('Parabéns! Você concluiu todas as tarefas do checklist.');
-    // Aqui você pode adicionar a lógica para exibir o certificado personalizado
+    const modal = document.getElementById('modal-conclusao');
+    modal.style.display = 'flex'; // Exibe o modal
 }
 
-// Carregar as tarefas ao iniciar a página
-carregarTarefas();
+// Função para fechar o modal
+function fecharModal() {
+    const modal = document.getElementById('modal-conclusao');
+    modal.style.display = 'none'; // Oculta o modal
+}
+
+// Inicializa os passos ao carregar a página
+window.onload = gerarPassos;

@@ -28,6 +28,9 @@ function redefinirSenha() {
     window.open('https://console.jumpcloud.com/login', '_blank');
 }
 
+function erpbi() {
+    window.open('https://erp.gdigital.com.br/greenn/admin/', '_blank');
+}
 
 function primeiraConfig() {
     window.location.href = 'check/checklist.html';;

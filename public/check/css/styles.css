@@ -2,87 +2,85 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: #f0f4f8;
     color: #333;
     line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-/* Logo e Mensagem de Boas-Vindas */
-header {
-    text-align: center;
-    padding: 40px 20px;
-    margin-bottom: 20px;
+/* Container Principal */
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
 }
 
-.logo {
-    font-family: 'Poppins', sans-serif;
-    font-size: 3em;
-    font-weight: bold;
-    margin: 0;
+/* Barra de Progresso Vertical */
+.progresso-vertical {
+    width: 20px; /* Mais gordinha */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-right: 20px;
+}
+
+.linha-progresso {
+    width: 100%; /* Ocupa toda a largura */
+    height: 100%;
+    background: #e0e0e0;
+    position: relative;
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+.linha-progresso-preenchida {
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(135deg, #0dd65a, #00c6ff);
+    border-radius: 10px; /* Bordas arredondadas */
+    transition: height 0.3s ease;
+}
+
+.porcentagem-progresso {
+    margin-top: 10px;
+    font-size: 1.1em;
     color: #0dd65a;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    font-weight: bold;
+}
+
+/* Logo Greenn com efeito de cor progressiva */
+#logo-greenn {
+    background: linear-gradient(135deg, #0dd65a, #00c6ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: transform 0.3s ease;
+    transition: background 0.3s ease;
 }
 
-.logo:hover {
-    transform: scale(1.05);
+/* Conteúdo dos Passos */
+.conteudo {
+    flex: 1;
+    padding-left: 40px;
 }
 
-.mensagem-boas-vindas {
-    font-size: 1.2em;
-    margin-top: 10px;
-    color: #555;
+/* Lista de Passos */
+.lista-passos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* Barra de Progresso */
-#progresso {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.barra-progresso {
-    width: 80%;
-    max-width: 600px;
-    height: 20px;
-    background: #e0e0e0;
-    border-radius: 10px;
-    margin: 0 auto;
-    overflow: hidden;
-}
-
-#progresso-preenchido {
-    width: 0%;
-    height: 100%;
-    background: linear-gradient(135deg, #0072ff, #00c6ff);
-    border-radius: 10px;
-    transition: width 0.3s ease;
-}
-
-#porcentagem-progresso {
-    font-size: 1.1em;
-    margin-top: 10px;
-    color: #0072ff;
-}
-
-/* Checklist de Tarefas */
-#checklist {
-    text-align: center;
-    margin: 20px;
-}
-
-#lista-tarefas {
-    list-style: none;
-    padding: 0;
-}
-
-#lista-tarefas li {
-    background: #fff;
-    padding: 15px;
-    margin: 10px 0;
+.passo-item {
+    background: #f9f9f9;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -90,12 +88,30 @@ header {
     justify-content: space-between;
 }
 
-#lista-tarefas li input[type="checkbox"] {
-    margin-right: 10px;
+.passo-item.concluido {
+    background: #e8f5e9;
 }
 
+.passo-item h3 {
+    margin: 0;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.passo-item p {
+    margin: 5px 0 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.passo-item input[type="checkbox"] {
+    accent-color: #0dd65a;
+    cursor: pointer;
+}
+
+/* Botão Finalizar */
 #finalizar-btn {
-    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    background: #0dd65a;
     border: none;
     color: #fff;
     padding: 10px 20px;
@@ -112,21 +128,123 @@ header {
 }
 
 #finalizar-btn:hover:not(:disabled) {
-    background: linear-gradient(135deg, #005bb5, #0099cc);
+    background: #0bbf50;
+}
+
+/* Modal de Conclusão */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-conteudo {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    max-width: 500px;
+    animation: aparecer 0.5s ease;
+}
+
+.modal-conteudo h2 {
+    margin: 0;
+    font-size: 2em;
+    color: #0dd65a;
+}
+
+.modal-conteudo p {
+    margin: 20px 0;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.modal-conteudo button {
+    background: #0dd65a;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.modal-conteudo button:hover {
+    background: #0bbf50;
+}
+
+/* Efeito Aurora Boreal (Gradiente Verde e Azul) */
+.modal-conteudo::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, #0dd65a, #00c6ff, #0072ff, #00c6ff);
+    z-index: -1;
+    border-radius: 30px;
+    animation: aurora 10s infinite alternate;
+}
+
+@keyframes aurora {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .logo {
-        font-size: 2em;
-    }
-
-    .barra-progresso {
-        width: 90%;
-    }
-
-    #lista-tarefas li {
+    .container {
         flex-direction: column;
-        align-items: flex-start;
+    }
+
+    .progresso-vertical {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .linha-progresso {
+        height: 10px; /* Mais gordinha em dispositivos móveis */
+        width: 100%;
+    }
+
+    .linha-progresso-preenchida {
+        width: 0%;
+        height: 100%;
+    }
+
+    .porcentagem-progresso {
+        margin-left: 10px;
+    }
+
+    .conteudo {
+        padding: 10px;
     }
 }
